@@ -95,7 +95,62 @@ function myFunc(theObject) {
     year: 1998,
   };
   
-  console.log(mycar.make); // "Honda"
-  myFunc(mycar);
-  console.log(mycar.make); // "Toyota"
+  // console.log(mycar.make); // "Honda"
+  // myFunc(mycar);
+  // console.log(mycar.make); // "Toyota"
+
+// suppose you are making a website in website you have a section of add to cart and you don't know how many items added by user you just only sum the price of all the items and show it
+
+
+// function calculatecartPrice(num1){
+//     return num1
+// }
+
+// function calculatecartPrice(...num1){
+//          return num1
+//    }// it returns a array [ 200, 400, 600 ]
+    
+function calculatecartPrice(val1, val2, ...num1){
+    return num1
+}
+
+// console.log(calculatecartPrice(2));  // ye to sahi hai but in the parameter section if we get more than one values then what happend
+
+//console.log(calculatecartPrice(200, 400, 600, 5000));// so altimatlly it results 200 only
+
+// so what is the problem how to fix it to solve this we have a rest operator or you can say Spred operator
+
+const user = {
+    username: "Harsh",
+    price: 199
+}
+
+function handleObject(anyobject){
+    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
+    // it results Username is Harsh and price is 199 but i change any key name in object like price to prices then it result undefined
+}
+
+// handleObject(user) // here boject also allowed if you want like below line
+
+handleObject({
+    username: "sam",
+    price: 399
+})
+
+const myNewArray = [200, 400, 100, 600]
+
+function returnSecondValue(getArray){
+     return getArray[1]
+}
+
+
+// here if  
+// console.log(returnSecondValue(myNewArray));
+console.log(returnSecondValue([200, 400, 500, 1000]));
+
+
+
+
+
+
 
