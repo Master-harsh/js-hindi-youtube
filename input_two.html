@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input types in html</title>
+</head>
+
+<body>
+    <h1>Forms in html</h1>
+    <form action="url" method="get"></form>
+    <label for="fname">First Name:</label>
+    <input type="text" placeholder="First name" autocapitalize="" name="" value="harsh" id="fname">
+
+    <label for="Week">Choose a week:</label>
+    <input type="week" name="week" id="week" min="2024-w01" max="2024-w52">
+
+    <select name="editors" id="" multiple>
+        <option value="vscode">vscode</option>
+        <option value="sublime">sublime</option>
+        <option value="notepad">notepad</option>
+        <option value="notepad++">notepad++</option>
+    </select>
+
+    <input list="editors" name="editors">
+    <datalist id="editors">
+        <option value="vscode">vscode</option>
+        <option value="sublime">sublime</option>
+
+    </datalist>
+
+    <div>
+        <input type="range" id="volume" name="volume" min="0" max="11" />
+        <label for="volume">Volume</label>
+    </div>
+    <div>
+        <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="90" step="10" />
+        <label for="cowbell">Cowbell</label>
+    </div>
+
+    <button type="reset">Reset</button>
+
+
+    <button type="submit" style="background-color: #0000ff; text-align: center; color: #000000;">Submit</button>
+
+
+    </form>
+
+</body>
+
+</html>
