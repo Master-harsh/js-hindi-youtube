@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="Stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("Harsh");  // it means give a timeout and after that i will do your work atleast one time
+    // }, 2000)
+
+    // if you want then you give just reference of that function like That
+
+    // const sayHarsh = function(){
+    //     console.log("Harsh");
+    // }
+
+    // setTimeout(sayHarsh, 2000)
+
+// If i want to change the heading of the page
+    // const sayHarsh = function(){
+    //     console.log("Harsh");
+    // }
+    // document.querySelector('h1').innerHTML = "Best JS Series" // it change the h1 heading on browser
+
+    // setTimeout(sayHarsh, 2000)
+
+
+    const sayHarsh = function(){
+        console.log("Harsh");
+    }
+    // const changeText = function (){
+    //     document.querySelector('h1').innerHTML = "Best JS Series"
+    // }
+
+    // setTimeout(changeText, 2000) // Here after 2 milisecond it change the heading 
+
+    // But if you want before changing the heading you must have an option to stop it
+
+    const changeText = function (){
+        document.querySelector('h1').innerHTML = "Best JS Series"
+    }
+
+    const changeMe = setTimeout(changeText, 2000) // Here after 2 milisecond it change the heading 
+
+    clearTimeout(changeMe) // it correct but nothing the meaning of that because you just take it and reemove it without any work
+
+    // Here we need to add this on any event
+
+    document.querySelector('#Stop').
+    addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED");
+    })
+
+
+
+</script>
+
+
+</html>

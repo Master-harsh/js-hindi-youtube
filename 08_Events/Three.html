@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chai aur JAVASCRIPT</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+</body>
+<script>
+    // const toCheck = setInterval(function(){
+    //     console.log("Harsh", Date.now());
+
+    // }, 1000)
+
+    // const sayDate = function(str){
+    //     console.log(str, Date.now());
+
+    // }
+
+    // document.querySelector('#Start').
+    // addEventListener('click', function(){
+    //     setInterval(function(){
+    //     console.log("Harsh", Date.now());
+
+    // }, 1000)
+    // console.log("STARTED");
+    // })
+
+    // document.querySelector('#Stop').
+    // addEventListener('click', function(){
+    //     clearInterval()
+    //     console.log("STOPPED");
+    // })
+
+    let intervalId;  // Declare a variable to store the interval ID
+
+    document.querySelector('#Start')
+        .addEventListener('click', function () {
+            if (!intervalId) {  // Check if an interval is already running
+                intervalId = setInterval(function () {
+                    console.log("Harsh", Date.now());
+                }, 1000);
+                console.log("STARTED");
+            }
+        });
+
+    document.querySelector('#Stop')
+        .addEventListener('click', function () {
+            if (intervalId) {  // Check if an interval is running
+                clearInterval(intervalId);  // Use the stored interval ID to clear it
+                intervalId = null;  // Reset intervalId so that it can be started again
+                console.log("STOPPED");
+            }
+        });
+
+
+    // const intervalId = setInterval(sayDate, 1000, "Hi")
+
+    // clearInterval(intervalId)
+
+
+</script>
+
+
+</html>
