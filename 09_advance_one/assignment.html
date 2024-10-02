@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Card</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background-color: #333333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn" id="loadCardBtn">Load GitHub User Card</button>
+    
+    <div id="cardContainer"></div>
+
+    <script>
+        // Function to create and display the card
+        function createCard(data) {
+            const cardContainer = document.getElementById('cardContainer');
+
+            // Create card element
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            // Add profile image
+            const img = document.createElement('img');
+            img.src = data.avatar_url;
+            img.alt = `${data.login}'s avatar`;
+            card.appendChild(img);
+
+            // Add username
+            const username = document.createElement('h3');
+            username.textContent = data.login;
+            card.appendChild(username);
+
+            // Add followers count
+            const followers = document.createElement('p');
+            followers.textContent = `Followers: ${data.followers}`;
+            card.appendChild(followers);
+
+            // Append the card to the container
+            cardContainer.appendChild(card);
+        }
+
+        // Function to fetch GitHub user data
+        function loadUserData() {
+            const requestUrl = 'https://api.github.com/users/harshtiwari'; // Example GitHub username
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', requestUrl);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        createCard(data); // Pass data to createCard function
+                    } else {
+                        console.error('Error fetching data:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+
+        // Add event listener to the button
+        document.getElementById('loadCardBtn').addEventListener('click', loadUserData);
+    </script>
+
+</body>
+</html>
